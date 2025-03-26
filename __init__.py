@@ -31,7 +31,7 @@ class RunYoloInference(foo.Operator):
         return foo.OperatorConfig(
             name="run-yolo-inference",  # Must match what's in fiftyone.yml
             label="Run YOLO inference",
-            icon="input",  # Material UI icon, or path to custom icon
+            icon="batch_prediction",  # Material UI icon, or path to custom icon
             allow_immediate_execution=True,
             allow_delegated_execution=True,
             default_choice_to_delegated=True,
@@ -46,7 +46,7 @@ class RunYoloInference(foo.Operator):
             types.Places.SAMPLES_GRID_SECONDARY_ACTIONS,
             types.Button(
                 label="Apply YOLO model",
-                icon="input",
+                icon="batch_prediction",
                 prompt=True,  # always show the operator's input prompt
             ),
         )
@@ -81,7 +81,7 @@ class RunYoloInference(foo.Operator):
             label="Confidence threshold",
         )
         
-         # 3) CUDA target device
+        # 3) CUDA target device
         inputs.int(
             "target_device_index",
             default=0,
@@ -89,7 +89,6 @@ class RunYoloInference(foo.Operator):
             description="CUDA Device number to train on. Optional, defaults to device cuda:0",
             label="Target CUDA device number",
         )
-
 
         return types.Property(
             inputs,
