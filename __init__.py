@@ -2,12 +2,10 @@ import sys
 import os
 from datetime import datetime
 import logging
-import torch
 import fiftyone as fo
 import fiftyone.operators as foo
 import fiftyone.operators.types as types
 import fiftyone.core.storage as fos
-import fiftyone.utils.ultralytics as fou
 
 
 logger = logging.getLogger("fiftyone.core.collections")
@@ -97,7 +95,9 @@ class RunYoloInference(foo.Operator):
 
     def execute(self, ctx):
         """ """
-
+        
+        import torch
+        import fiftyone.utils.ultralytics as fou
         from ultralytics import YOLO
 
         det_field = ctx.params["det_field"]
